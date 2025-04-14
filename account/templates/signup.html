@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{% block html_body %}
+
+<div class="card mx-auto mt-5 m-10 p-2 text-center" style="width: 50rem;">
+    <div class="card-header text-center">
+        <h2>Sign Up</h2>
+    </div>
+    {% if error %}
+    {{error}}
+    {% endif %}
+    <form action="{% url "signup" %}" method="post">
+        {% csrf_token %}
+        <input class="form-control mt-2" type="text" id="firstname" name="firstname" placeholder = "Please enter first name"><br>
+        <input class="form-control mt-2" type="text" id="lastname" name="lastname" placeholder = "Please enter last name"><br>
+        <input class="form-control mt-2" type="email" id="email" name="email" placeholder = "Please enter email id"><br>
+        <input class="form-control mt-2" type="text" id="username" name="username" placeholder = "Please enter user name"><br>
+        <input class="form-control" type="password" id="password" name="password" placeholder = "Please enter password"><br>
+        <input class="form-control" type="password" id="cn_password" name="cn_password" placeholder = "Please confirm password"><br>
+        <input class="form-control" type="number" id="mobile" name="mobile" placeholder = "Please Enter mobile number" min = "0"><br>
+        <button class="btn btn-primary mt-2 mb-2" type = "submit">Signup</button>
+    </form>
+</div>
+
+{% endblock %}
+

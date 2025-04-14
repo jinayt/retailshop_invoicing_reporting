@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block html_body%}
+
+    <div class="card mx-auto mt-5 m-10 p-2 text-center login-width">
+        <div class="card-header text-center">
+            <h2>Login</h2>
+        </div>
+        {% if error %}
+        {{error}}
+        {% endif %}
+        <form action="{% url "login" %}" method = "post">
+            {% csrf_token %}
+            <input class="mt-2 mb-2" type="text" id="username" name="username" placeholder = "Please enter user name"><br>
+            <input class="mt-2 mb-2" type="password" id="password" name="password" placeholder = "Please enter password"><br>
+            <button class="btn btn-primary mt-2 mb-2" type = "submit">Login</button>
+        </form>
+    </div>
+
+{% endblock  %}

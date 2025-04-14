@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+{% block html_body %}
+
+    <div class="min-space">
+        <div class="card">
+            <div class="card-header text-center"><h3>New Order</h3></div>
+            <div class="card-body">
+                
+                    <h4 class="px-3">Name: {{client_details.first_name}} {{client_details.last_name}}</h4>
+                    <h4 class="px-3">Address: {{client_details.line1}} {% if  client_details.line2 %}, {% endif %} {{client_details.line2}}{% if  client_details.line3 %}, {% endif %} {{client_details.line3}}</h4>
+                    <h4 class="px-3">{{client_details.city}} {{client_details.state}} {{client_details.pincode}}</h4>
+                    
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %} 
+                    <div class="d-flex align-items-center px-3 mt-3">
+                            <label class="form-label me-2" for="vehicle_no">Vehicle No: </label>
+                            <input  class="form-input" type="text" name="vehicle_no">
+                            <label class="form-label me-2" for="weight">Weight: </label>
+                            <input  class="form-input" type="file" name="weight">
+                            
+                        <div class="ms-auto">
+                            <label class="form-label me-2" for="orderdate">Date: </label>
+                            <input  class="form-input" type="date" name="orderdate">
+                        </div>
+                        
+                    </div>             
+                    <hr>                  
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width:40%">Items</th>
+                                <th class="text-center"style="width:10%">Rate</th>
+                                <th class="text-center"style="width:10%">Quantity</th>
+                                <th class="text-center"style="width:10%">Units</th>
+                                <th class="text-center"style="width:10%">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input class="form-control" style="width:100%" type="text" id="" name="item_name[]" placeholder="" min=0></td>
+                                <td><input class="form-control" type="number" id="" name="rate[]" placeholder="" min=0 step="0.01"></td>
+                                <td><input class="form-control" type="number" id="" name="quantity[]" placeholder="" min=0 step="0.01"></td>
+                                <td><select class="form-control" name="units[]" id="">
+                                        <option value="" selected>Select Unit</option>
+                                        <option value="KG">KG</option>
+                                        <option value="LTR">LTR</option>
+                                        <option value="GRAM">GRAM</option>
+                                        <option value="TON">TON</option>
+                                        <option value="PCS">PCS</option>
+                                    </select></td>
+                                    <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control" type="text" id="" name="item_name[]" placeholder=""></td>
+                                <td><input class="form-control" type="number" id="" name="rate[]" placeholder="" min=0 step="0.01"></td>
+                                <td><input class="form-control" type="number" id="" name="quantity[]" placeholder="" min=0 step="0.01"></td>
+                                <td><select class="form-control" name="units[]" id="">
+                                    <option value="" selected>Select Unit</option>  
+                                    <option value="KG">KG</option>
+                                    <option value="LTR">LTR</option>
+                                    <option value="GRAM">GRAM</option>
+                                    <option value="TON">TON</option>
+                                    <option value="PCS">PCS</option>
+                                </select></td>
+                                <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control" type="text" id="" name="item_name[]" placeholder=""></td>
+                                <td><input class="form-control" type="number" id="" name="rate[]" placeholder="" min=0 step="0.01"></td>
+                                <td><input class="form-control" type="number" id="" name="quantity[]" placeholder="" min=0 step="0.01"></td>
+                                <td><select class="form-control" name="units[]" id="">
+                                    <option value="" selected>Select Unit</option>
+                                    <option value="KG">KG</option>
+                                    <option value="LTR">LTR</option>
+                                    <option value="GRAM">GRAM</option>
+                                    <option value="TON">TON</option>
+                                    <option value="PCS">PCS</option>
+                                </select></td>
+                                <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="d-flex d-inline">
+                        <div class="ms-auto me-3">
+                            <label class="form-label" for=""><strong>Grand Total:</strong> </label>
+                            <input class="form-input" type="text" id="" name="grandtotal" placeholder="" disabled>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="text-center">
+                        <button class="btn btn-primary" id="addrow" type='button'>Add</button>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    <script src="{% static 'addorder.js' %}?v={% now 'U' %}"></script>
+{% endblock html_body %}

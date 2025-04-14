@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block html_body %}
+
+<div class="min-space container overflow-hidden text-center">
+    
+    <div class="row mt-2">
+        <a class="col-3 nav-link active me-2" href="{% url "client" %}">
+            
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h2>View Client</h2>
+                    </div>
+                   
+                </div>    
+        </a>
+
+        <a class="col-3 nav-link active" href="#">
+            
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h2>Report</h2>
+                </div>
+                
+            </div>    
+        </a>
+
+    </div>
+    
+    
+    
+</div>
+{% endblock html_body %}
