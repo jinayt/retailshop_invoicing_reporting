@@ -14,11 +14,7 @@
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %} 
                     <div class="d-flex align-items-center px-3 mt-3">
-                            <label class="form-label me-2" for="vehicle_no">Vehicle No: </label>
-                            <input  class="form-input" type="text" name="vehicle_no">
-                            <label class="form-label me-2" for="weight">Weight: </label>
-                            <input  class="form-input" type="file" name="weight">
-                            
+                                                       
                         <div class="ms-auto">
                             <label class="form-label me-2" for="orderdate">Date: </label>
                             <input  class="form-input" type="date" name="orderdate">
@@ -34,6 +30,8 @@
                                 <th class="text-center"style="width:10%">Quantity</th>
                                 <th class="text-center"style="width:10%">Units</th>
                                 <th class="text-center"style="width:10%">Total</th>
+                                <th class="text-center"style="width:10%">Vehicle No.</th>
+                                <th class="text-center"style="width:10%">Photos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +48,11 @@
                                         <option value="PCS">PCS</option>
                                     </select></td>
                                     <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                                    <td><input  class="form-input" type="text" name="vehicle_no[]"></td>
+                                    <td><label class="form-input" style="cursor: pointer;">
+                                        <i class="fa-solid fa-upload"></i>
+                                        <input type="file" name="weight[]" style="display: none;">
+                                    </label></td>
                             </tr>
                             <tr>
                                 <td><input class="form-control" type="text" id="" name="item_name[]" placeholder=""></td>
@@ -64,6 +67,11 @@
                                     <option value="PCS">PCS</option>
                                 </select></td>
                                 <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                                <td><input  class="form-input" type="text" name="vehicle_no[]"></td>
+                                    <td><label class="form-input" style="cursor: pointer;">
+                                        <i class="fa-solid fa-upload"></i>
+                                        <input type="file" name="weight[]" style="display: none;">
+                                    </label></td>
                             </tr>
                             <tr>
                                 <td><input class="form-control" type="text" id="" name="item_name[]" placeholder=""></td>
@@ -78,6 +86,12 @@
                                     <option value="PCS">PCS</option>
                                 </select></td>
                                 <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                                <td><input  class="form-input" type="text" name="vehicle_no[]"></td>
+                                <td><label class="form-input" style="cursor: pointer;">
+                                        <i class="fa-solid fa-upload"></i>
+                                        <input type="file" name="weight[]" style="display: none;">
+                                    </label>
+                                </td>
                             </tr>
                             
                         </tbody>

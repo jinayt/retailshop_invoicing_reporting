@@ -21,11 +21,12 @@
 
         <ul class="list-unstyled px-2">
           {% if user.is_authenticated and user.is_staff%}
-            <li class="active"><a href="{% url "admindashboard" %}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-house-user"></i><span class="ms-1">Dashboard</span></a></li>
+            <li class=""><a href="{% url "admindashboard" %}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-house-user"></i><span class="ms-1">Dashboard</span></a></li>
             <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block collapsed has-dropdown d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#ord-menu" aria-expanded="true" aria-controls="ord-menu">
               <span class="">Client</span><i class="fa-solid fa-sort-down py-0 px-2"></i></a>
               <ul id="ord-menu" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" >
-                <li class="sidebar-item"><a class="text-decoration-none px-3 py-2 d-block" href="{% url "client" %}">Add Client</a></li>
+                <li class="sidebar-item"><a class="text-decoration-none px-3 py-2 d-block" href="{% url "client" %}">View Client</a></li>
+                <li class="sidebar-item"><a class="text-decoration-none px-3 py-2 d-block" href="{% url "addclient" %}">Add Client</a></li>
                 <li class="sidebar-item"><a class="text-decoration-none px-3 py-2 d-block" href="#">Delete</a></li>
               </ul>
             </li>

@@ -31,7 +31,7 @@ def add_order(request, client_id):
                 rate = [rate for rate in request.POST.getlist('rate[]') if rate.strip()]
                 units = [unit for unit in request.POST.getlist('units[]') if unit.strip()]
                 weight = request.FILES.get('weight')
-                total_amt  = request.POST.get('vehicle_no')
+                total_amt  = request.POST.get('grandtotal')
                 
                 if len(items_name) == len(quantity) and len(quantity) == len(rate):
                     new_order = Order.objects.create(client_id=client_details,
@@ -51,7 +51,11 @@ def add_order(request, client_id):
                         total += Decimal(quantity[x]) * Decimal(rate[x])
                         print(total)
                         
-                    
+                    Payment.objects.create(order_id= new_order,
+                                           status = 'Dr',
+                                           amount = total_amt,
+                                           roundoff = Null
+                                           )
                     
                     new_order.weight = weight
                     new_order.save()         

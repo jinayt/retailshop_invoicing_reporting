@@ -14,6 +14,9 @@ $(document).ready(function(){
                                 '<option value="LTR">LTR</option>'+
                             '</select></td>'+
                             '<td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>'+
+                            '<td><input  class="form-input" type="text" name="vehicle_no[]"></td>'+
+                            '<td><label class="form-input" style="cursor: pointer;"><i class="fa-solid fa-upload">'+
+                            '</i><input type="file" name="weight[]" style="display: none;"></label></td>'+
             '</tr>'
         );
     });
