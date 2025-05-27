@@ -2,8 +2,8 @@ Django Framework - Python Vs code
 
 Project Feture
 
-Login
-Add new client
-Add order
-Add payment
-Check order by client
+1.Login
+2.Add new client
+3.Add order
+4.Add payment
+5.Check order by client
