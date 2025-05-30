@@ -22,16 +22,16 @@
                         
                     </div>             
                     <hr>                  
-                    <table class="table">
+                    <table class="table-responsive">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width:40%">Items</th>
-                                <th class="text-center"style="width:10%">Rate</th>
-                                <th class="text-center"style="width:10%">Quantity</th>
-                                <th class="text-center"style="width:10%">Units</th>
-                                <th class="text-center"style="width:10%">Total</th>
-                                <th class="text-center"style="width:10%">Vehicle No.</th>
-                                <th class="text-center"style="width:10%">Photos</th>
+                                <th class="text-center" scope="col" style="width:40%">Items</th>
+                                <th class="text-center" scope="col" style="width:10%">Rate</th>
+                                <th class="text-center" scope="col" style="width:10%">Quantity</th>
+                                <th class="text-center" scope="col" style="width:10%">Units</th>
+                                <th class="text-center" scope="col" style="width:10%">Total</th>
+                                <th class="text-center" scope="col" style="width:15%">Vehicle No.</th>
+                                <th class="text-center" scope="col" style="width:5%">Photos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,50 +48,31 @@
                                         <option value="PCS">PCS</option>
                                     </select></td>
                                     <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
-                                    <td><input  class="form-input" type="text" name="vehicle_no[]"></td>
-                                    <td><label class="form-input" style="cursor: pointer;">
+                                    <td><input  class="form-control" type="text" name="vehicle_no[]"></td>
+                                    <td class="text-center"><label class="form-control" style="cursor: pointer;">
                                         <i class="fa-solid fa-upload"></i>
                                         <input type="file" name="weight[]" style="display: none;">
                                     </label></td>
                             </tr>
+                            
                             <tr>
-                                <td><input class="form-control" type="text" id="" name="item_name[]" placeholder=""></td>
+                                <td><input class="form-control" style="width:100%" type="text" id="" name="item_name[]" placeholder="" min=0></td>
                                 <td><input class="form-control" type="number" id="" name="rate[]" placeholder="" min=0 step="0.01"></td>
                                 <td><input class="form-control" type="number" id="" name="quantity[]" placeholder="" min=0 step="0.01"></td>
                                 <td><select class="form-control" name="units[]" id="">
-                                    <option value="" selected>Select Unit</option>  
-                                    <option value="KG">KG</option>
-                                    <option value="LTR">LTR</option>
-                                    <option value="GRAM">GRAM</option>
-                                    <option value="TON">TON</option>
-                                    <option value="PCS">PCS</option>
-                                </select></td>
-                                <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
-                                <td><input  class="form-input" type="text" name="vehicle_no[]"></td>
-                                    <td><label class="form-input" style="cursor: pointer;">
+                                        <option value="" selected>Select Unit</option>
+                                        <option value="KG">KG</option>
+                                        <option value="LTR">LTR</option>
+                                        <option value="GRAM">GRAM</option>
+                                        <option value="TON">TON</option>
+                                        <option value="PCS">PCS</option>
+                                    </select></td>
+                                    <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
+                                    <td><input  class="form-control" type="text" name="vehicle_no[]"></td>
+                                    <td class="text-center"><label class="form-control" style="cursor: pointer;">
                                         <i class="fa-solid fa-upload"></i>
                                         <input type="file" name="weight[]" style="display: none;">
                                     </label></td>
-                            </tr>
-                            <tr>
-                                <td><input class="form-control" type="text" id="" name="item_name[]" placeholder=""></td>
-                                <td><input class="form-control" type="number" id="" name="rate[]" placeholder="" min=0 step="0.01"></td>
-                                <td><input class="form-control" type="number" id="" name="quantity[]" placeholder="" min=0 step="0.01"></td>
-                                <td><select class="form-control" name="units[]" id="">
-                                    <option value="" selected>Select Unit</option>
-                                    <option value="KG">KG</option>
-                                    <option value="LTR">LTR</option>
-                                    <option value="GRAM">GRAM</option>
-                                    <option value="TON">TON</option>
-                                    <option value="PCS">PCS</option>
-                                </select></td>
-                                <td><input class="form-control" type="number" id="" name="total[]" placeholder="" min=0 disabled></td>
-                                <td><input  class="form-input" type="text" name="vehicle_no[]"></td>
-                                <td><label class="form-input" style="cursor: pointer;">
-                                        <i class="fa-solid fa-upload"></i>
-                                        <input type="file" name="weight[]" style="display: none;">
-                                    </label>
-                                </td>
                             </tr>
                             
                         </tbody>

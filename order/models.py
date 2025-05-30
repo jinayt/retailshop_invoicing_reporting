@@ -30,7 +30,7 @@ class OrderItems(models.Model):
     quantity = models.DecimalField(max_digits=14, decimal_places=2)
     rate = models.DecimalField(max_digits=14, decimal_places=2)
     units = models.CharField(max_length=20,null=True)
-    truck_number = models.CharField(max_length=20, null=True)
+    truck_number = models.CharField(max_length=20, default=None, null=True)
     weight = models.ImageField(upload_to='image/', null=True, blank=True)
     last_update = models.DateTimeField(auto_now=True)
    
@@ -39,5 +39,5 @@ class Payment(models.Model):
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
     status = models.CharField(max_length=2)
     amount = models.DecimalField(max_digits=14, decimal_places=2)
-    roundoff = models.DecimalField(max_digits=14, decimal_places=2)
+    roundoff = models.DecimalField(max_digits=14, default=None ,null=True, decimal_places=2)
     last_update = models.DateTimeField(auto_now=True)

@@ -22,7 +22,7 @@ def add_order(request, client_id):
     client_details.last_name = client_details.last_name.title()
 
     if request.method == "POST":
-        try:
+        # try:
             with transaction.atomic():
                 vehicle_no = request.POST.get('vehicle_no')
                 order_date = request.POST.get('orderdate')
@@ -31,38 +31,44 @@ def add_order(request, client_id):
                 rate = [rate for rate in request.POST.getlist('rate[]') if rate.strip()]
                 units = [unit for unit in request.POST.getlist('units[]') if unit.strip()]
                 weight = request.FILES.get('weight')
-                total_amt  = request.POST.get('grandtotal')
                 
                 if len(items_name) == len(quantity) and len(quantity) == len(rate):
                     new_order = Order.objects.create(client_id=client_details,
-                                         order_date=order_date,
-                                         truck_number = vehicle_no,
+                                         order_date=order_date                                         
                                         )
                     # context['post_data'] = request.POST
                     # print("context data: ",context['post_data'])
                     total = 0
                     for x in range(len(items_name)):
-                        OrderItems.objects.create(order_id = new_order,
-                                            item_name = items_name[x],
-                                            quantity = Decimal(quantity[x]),
-                                            rate = Decimal(rate[x]),
-                                            units = units[x]
-                                            )
+                        if vehicle_no is None:
+                            OrderItems.objects.create(order_id = new_order,
+                                                item_name = items_name[x],
+                                                quantity = Decimal(quantity[x]),
+                                                rate = Decimal(rate[x]),
+                                                units = units[x]                                                
+                                                )
+                        else:
+                            OrderItems.objects.create(order_id = new_order,
+                                                item_name = items_name[x],
+                                                quantity = Decimal(quantity[x]),
+                                                rate = Decimal(rate[x]),
+                                                units = units[x],
+                                                truck_number = vehicle_no[x]                                              
+                                                )
                         total += Decimal(quantity[x]) * Decimal(rate[x])
-                        print(total)
+                        # print(total)
                         
                     Payment.objects.create(order_id= new_order,
                                            status = 'Dr',
-                                           amount = total_amt,
-                                           roundoff = Null
+                                           amount = total
                                            )
                     
                     new_order.weight = weight
                     new_order.save()         
                     return render(request,'test2.html')
                 
-        except Exception as e:
-            return render(request,"test2.html",{'error':f"Error while storing data. {str(e)}"})       
+        # except Exception as e:
+        #     return render(request,"test2.html",{'error':f"Error while storing data. {str(e)}"})       
     else:
          
         return render(request,'addorder.html',{"client_details":client_details})    
@@ -194,7 +200,7 @@ def invoice_pdf(request, order_id):
     return response
 
     
-def all_invoice_pdf(request):
+def all_invoice_pdf(request,order_id):
     response = HttpResponse(content_type="application/pdf")
     response["Content-Disposition"] = f'inline; filename="invoice_{order_id}.pdf"'
     
